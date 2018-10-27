@@ -1,26 +1,29 @@
 {
-  "name": "my-new-project",
+  "name": "empty-project-template",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/samples": "2.1.1",
     "expo": "^30.0.1",
-    "firebase": "^5.5.6",
     "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
-    "react-navigation": "^2.16.0"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
   },
   "devDependencies": {
-    "jest-expo": "30.0.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.14.3"
   }
 }
