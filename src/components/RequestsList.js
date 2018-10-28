@@ -13,7 +13,7 @@ import Divider from "@material-ui/core/Divider";
 import { Card } from "rebass";
 import GoogleMapReact from "google-map-react";
 
-const googleMapsClient = require('@google/maps').createClient({
+const googleMapsClient = require("@google/maps").createClient({
   key: "AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU"
 });
 
@@ -105,14 +105,6 @@ function DetailedExpansionPanel(props) {
             text={'Kreyser Avrora'}>
               {/* map goes here 
               </Card>*/}
-<<<<<<< HEAD
-
-              <div lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}></div>
-=======
->>>>>>> 646163c02646f4a6450b9bfb0c5e1b06d86169a8
-
               <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
             </GoogleMapReact>
           </div>
