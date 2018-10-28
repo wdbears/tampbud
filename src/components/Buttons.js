@@ -51,12 +51,15 @@ const styles = theme => ({
   paper: {
     position: "absolute",
     textAlign: "center",
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4
   },
   cardtitle: {
     marginBottom: 12
+  },
+  cardButtons: {
+    justifyContent: "center",
+    alignItems: "center"
   },
   focusVisible: {},
   imageButton: {
@@ -190,7 +193,7 @@ class ButtonBases extends React.Component {
                 You are requesting for
               </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions className={classes.cardButtons}>
               <Button size="small">Yes</Button>
               <Button size="small">No</Button>
             </CardActions>
