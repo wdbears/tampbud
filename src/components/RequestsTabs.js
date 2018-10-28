@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import OwnRequests from "./OwnRequests";
 import RequestsList from "./RequestsList";
+import AcceptedList from "./AcceptedList";
 
 function TabContainer({ children, dir }) {
   return (
@@ -55,6 +56,7 @@ class FullWidthTabs extends React.Component {
         >
           <Tab label="Personal" />
           <Tab label="Community" />
+          <Tab label="Accepted" />
         </Tabs>
         <SwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -66,6 +68,9 @@ class FullWidthTabs extends React.Component {
           </TabContainer>
           <TabContainer dir={theme.direction}>
             <RequestsList />
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            <AcceptedList />
           </TabContainer>
         </SwipeableViews>
       </div>
