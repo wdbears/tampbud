@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Card from "@material-ui/core/Card";
@@ -39,7 +36,7 @@ const styles = theme => ({
   }
 });
 
-function DetailedExpansionPanel(props) {
+function CardRequests(props) {
   const { classes } = props;
   const defaultProps = {
     center: {
@@ -92,8 +89,8 @@ function DetailedExpansionPanel(props) {
   );
 }
 
-DetailedExpansionPanel.propTypes = {
+CardRequests.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(DetailedExpansionPanel);
+export default withStyles(styles)(CardRequests);

@@ -10,12 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import { Card } from "rebass";
 import GoogleMapReact from "google-map-react";
-
-const googleMapsClient = require("@google/maps").createClient({
-  key: "AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU"
-});
 
 const styles = theme => ({
   root: {

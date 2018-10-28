@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
-import Modal from "@material-ui/core/Modal";
-import Button from "@material-ui/core/Button";
 import CondomPic from "../images/condom.jpg";
 import TamponPic from "../images/tampon.jpg";
 import PadPic from "../images/pad.jpg";
+import Modal from "@material-ui/core/Modal";
+import Button from "@material-ui/core/Button";
 import { Card, CardContent, CardActions } from "@material-ui/core";
+import firebase from 'firebase';
 
 function getModalStyle() {
   const top = 50;
@@ -127,25 +128,57 @@ const images = [
 ];
 
 class ButtonBases extends React.Component {
+  state = {
+    open: false,
+    selected: ""
+  };
 
-  sendRequest = () => {
-    console.log("sent!");
+  handleCondom = () => {
+    this.setState({ open: true,
+    selected: "condom"});
+  };
+
+  handlePeriodPad = () => {
+    this.setState({
+      open:true,
+      selected: "pad"
+    });
   }
 
+  handleTampon = () => {
+    this.setState({
+      open: true,
+      selected: "tampon"
+    });
+  }
+
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  sendRequest = () => {
+    
+    firebase.database().ref('requests').push({
+      createdBy: "Alice Zhu",
+      location: "0,0",
+      timeStamp: Date.now(),
+      completed: false
+    });
+  };
 
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-
         {/* Condom Button */}
         <ButtonBase
           focusRipple
           key={images[0].title}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          onClick={classes.handleCondom}
+          onClick={this.handleCondom}
           style={{
             width: images[0].width
           }}
@@ -195,7 +228,7 @@ class ButtonBases extends React.Component {
               color="inherit"
               className={classes.imageTitle}
             >
-              {images[0].title}
+              {images[1].title}
             </Typography>
           </span>
         </ButtonBase>
@@ -229,7 +262,34 @@ class ButtonBases extends React.Component {
             </Typography>
           </span>
         </ButtonBase>
-        
+
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <Card style={getModalStyle()} className={classes.paper}>
+            <CardContent>
+              <Typography
+                variant="h5"
+                id="modal-title"
+                className={classes.cardtitle}
+              >
+                Are you sure?
+              </Typography>
+              <Typography variant="subtitle1" id="simple-modal-description">
+                You are submitting a request for a {this.state.selected}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button onClick={this.sendRequest} size="small">
+                Yes
+              </Button>
+              <Button size="small">No</Button>
+            </CardActions>
+          </Card>
+        </Modal>
       </div>
     );
   }
