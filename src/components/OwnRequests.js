@@ -65,9 +65,7 @@ function CardRequests(props) {
           </GoogleMapReact>
         </CardMedia>
         <CardContent>
-          <Typography component="p">
-            Your request of a tampon is on the way!
-          </Typography>
+          <Typography component="p">Your tampon is on the way!</Typography>
         </CardContent>
       </Card>
     </div>
