@@ -127,86 +127,109 @@ const images = [
 ];
 
 class ButtonBases extends React.Component {
-  state = {
-    open: false
-  };
 
   sendRequest = () => {
     console.log("sent!");
-  };
+  }
 
-  handleOpen = () => {
-    this.setState({
-      open: true
-    });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
 
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-        {images.map(image => (
-          <ButtonBase
-            focusRipple
-            key={image.title}
-            className={classes.image}
-            focusVisibleClassName={classes.focusVisible}
-            onClick={this.handleOpen}
-            style={{
-              width: image.width
-            }}
-          >
-            <span
-              className={classes.imageSrc}
-              style={{
-                backgroundImage: `url(${image.url})`
-              }}
-            />
-            <span className={classes.imageBackdrop} />
-            <span className={classes.imageButton}>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                className={classes.imageTitle}
-              >
-                {image.title}
-              </Typography>
-            </span>
-          </ButtonBase>
-        ))}
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
+
+        {/* Condom Button */}
+        <ButtonBase
+          focusRipple
+          key={images[0].title}
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          onClick={classes.handleCondom}
+          style={{
+            width: images[0].width
+          }}
         >
-          <Card style={getModalStyle()} className={classes.paper}>
-            <CardContent>
-              <Typography
-                variant="h5"
-                id="modal-title"
-                className={classes.cardtitle}
-              >
-                Are you sure?
-              </Typography>
-              <Typography variant="subtitle1" id="simple-modal-description">
-                You are requesting for {}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button onClick={this.sendRequest} size="small">
-                Yes
-              </Button>
-              <Button size="small">No</Button>
-            </CardActions>
-          </Card>
-        </Modal>
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[0].url})`
+            }}
+          />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              {images[0].title}
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        {/* Tampon Button */}
+
+        <ButtonBase
+          focusRipple
+          key={images[1].title}
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          onClick={this.handleTampon}
+          style={{
+            width: images[1].width
+          }}
+        >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[1].url})`
+            }}
+          />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              {images[0].title}
+            </Typography>
+          </span>
+        </ButtonBase>
+
+        {/* Period Pad Button */}
+        <ButtonBase
+          focusRipple
+          key={images[2].title}
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          onClick={this.handlePeriodPad}
+          style={{
+            width: images[2].width
+          }}
+        >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${images[2].url})`
+            }}
+          />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              {images[2].title}
+            </Typography>
+          </span>
+        </ButtonBase>
+        
       </div>
     );
   }

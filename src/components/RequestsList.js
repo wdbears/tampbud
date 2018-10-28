@@ -13,7 +13,6 @@ import Divider from "@material-ui/core/Divider";
 import { Card } from "rebass";
 import GoogleMapReact from 'google-map-react';
 
-
 const googleMapsClient = require('@google/maps').createClient({
   key: "AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU"
 });
