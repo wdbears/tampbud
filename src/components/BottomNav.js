@@ -6,7 +6,7 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import HomeIcon from "@material-ui/icons/Home";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import PersonIcon from "@material-ui/icons/Person";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const styles = {
   root: {
@@ -16,8 +16,22 @@ const styles = {
 
 class SimpleBottomNavigation extends React.Component {
   state = {
-    value: 0
+    value: 0,
+    pathMap: ["/", "/requests", "/profile"]
   };
+
+  componentWillReceiveProps(newProps) {
+    const { pathname } = newProps.location;
+    const { pathMap } = this.state;
+
+    const value = pathMap.indexOf(pathname);
+
+    if (value > -1) {
+      this.setState({
+        value
+      });
+    }
+  }
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -25,7 +39,7 @@ class SimpleBottomNavigation extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
+    const { value, pathMap } = this.state;
 
     return (
       <BottomNavigation
@@ -37,19 +51,19 @@ class SimpleBottomNavigation extends React.Component {
           component={Link}
           label="Home"
           icon={<HomeIcon />}
-          to="/"
+          to={pathMap[0]}
         />
         <BottomNavigationAction
           component={Link}
           label="Requests"
           icon={<ReceiptIcon />}
-          to="/requests"
+          to={pathMap[1]}
         />
         <BottomNavigationAction
           component={Link}
           label="Profile"
           icon={<PersonIcon />}
-          to="profile"
+          to={pathMap[2]}
         />
       </BottomNavigation>
     );
@@ -60,4 +74,4 @@ SimpleBottomNavigation.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleBottomNavigation);
+export default withRouter(withStyles(styles)(SimpleBottomNavigation));

@@ -1,22 +1,24 @@
-import React from "react"
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from "../components/Avatar";
 import SettingsList from "../components/SettingsList";
 
 const styles = {
-    page: {
-        paddingTop: 30
-      },
-      application: {
-          textAlign: 'center'
-      }
-    }
+  page: {
+    paddingTop: 30
+  },
+  application: {
+    textAlign: "center"
+  }
+};
 
-const ProfilePage = ({classes}) => (
-    <div className={classes.page}>
+const ProfilePage = ({ classes }) => (
+  <div className={classes.page}>
     <>
-        <SettingsList /> 
+      <Avatar />
+      <SettingsList />
     </>
-    </div>
-)
+  </div>
+);
 
 export default withStyles(styles)(ProfilePage);
