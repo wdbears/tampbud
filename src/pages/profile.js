@@ -6,9 +6,6 @@ import SettingsList from "../components/SettingsList";
 const styles = {
   page: {
     paddingTop: 30
-  },
-  application: {
-    textAlign: "center"
   }
 };
 

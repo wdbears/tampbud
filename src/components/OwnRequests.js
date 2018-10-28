@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -40,7 +39,7 @@ function CardRequests(props) {
   const { classes } = props;
   const defaultProps = {
     center: {
-      lat: 59.95,
+      lat: 49.95,
       lng: 30.33
     },
     zoom: 11
@@ -62,21 +61,7 @@ function CardRequests(props) {
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
           >
-            {/* <Card
-            fontSize={6}
-            fontWeight="bold"
-            p={5}
-            my={5}
-            bg="#f6f6ff"
-            borderRadius={8}
-            boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
-            lat={59.955413}
-          lng={30.337844}
-          text={'Kreyser Avrora'}>
-            {/* map goes here 
-            </Card>*/}
-
-            <div lat={69.955413} lng={30.337844} text={"Kreyser Avrora"} />
+            <div lat={49.955413} lng={30.337844} text={"Kreyser Avrora"} />
           </GoogleMapReact>
         </CardMedia>
         <CardContent>
