@@ -1,57 +1,110 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
 import Typography from "@material-ui/core/Typography";
-import { Flex, Box } from "rebass";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import { Card } from "rebass";
 
 const styles = theme => ({
   root: {
     width: "100%"
   },
   heading: {
-    fontSize: theme.typography.pxToRem(22),
-    fontWeight: theme.typography.fontWeightRegular
+    fontSize: theme.typography.pxToRem(15)
   },
   secondaryHeading: {
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: theme.typography.fontWeightLight
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary
+  },
+  icon: {
+    verticalAlign: "bottom",
+    height: 20,
+    width: 20
+  },
+  details: {
+    alignItems: "center"
+  },
+  column: {
+    flexBasis: "50%"
+  },
+  column2: {
+    flexBasis: "33.33%"
+  },
+  helper: {
+    borderLeft: `2px solid ${theme.palette.divider}`,
+    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
+  },
+  link: {
+    color: theme.palette.primary.main,
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline"
+    }
+  },
+  list: {
+    listStyleType: "none",
+    textAlign: "left"
   }
 });
 
-function SimpleExpansionPanel(props) {
+function DetailedExpansionPanel(props) {
   const { classes } = props;
+
   return (
     <div className={classes.root}>
       <ExpansionPanel>
-        <ExpansionPanelSummary>
-          <Flex flexDirection="column">
-            <Box width={1 / 2} color="magenta" alignItems="left">
-              <Typography className={classes.heading}>Jane</Typography>
-            </Box>
-            <Box width={1 / 2} color="magenta" alignItems="right">
-              <Typography className={classes.secondaryHeading}>
-                8:00PM
-              </Typography>
-            </Box>
-          </Flex>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <div className={classes.column}>
+            <Typography className={classes.heading}>Jane Styles</Typography>
+          </div>
+          <div className={classes.column}>
+            <Typography className={classes.secondaryHeading}>Condom</Typography>
+          </div>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+        <ExpansionPanelDetails className={classes.details}>
+          <div className={classes.column2}>
+            <Card
+              fontSize={6}
+              fontWeight="bold"
+              p={5}
+              my={5}
+              bg="#f6f6ff"
+              borderRadius={8}
+              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
+            />
+          </div>{" "}
+          <div className={classes.column2} />
+          <div className={classNames(classes.column2, classes.helper)}>
+            <Typography variant="caption">
+              <ul className={classes.list}>
+                <li>Time: 3:59 PM</li>
+                <li>Distance: 0.22 miles</li>
+              </ul>
+              <br />
+            </Typography>
+          </div>
         </ExpansionPanelDetails>
+        <Divider />
+        <ExpansionPanelActions>
+          <Button size="small">Cancel</Button>
+          <Button size="small" color="primary">
+            Accept
+          </Button>
+        </ExpansionPanelActions>
       </ExpansionPanel>
     </div>
   );
 }
 
-SimpleExpansionPanel.propTypes = {
+DetailedExpansionPanel.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SimpleExpansionPanel);
+export default withStyles(styles)(DetailedExpansionPanel);
