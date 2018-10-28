@@ -73,7 +73,7 @@ function DetailedExpansionPanel(props) {
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
-            <Typography className={classes.heading}>Jane Styles</Typography>
+            <Typography className={classes.heading}>Shirley Temple</Typography>
           </div>
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}>Condom</Typography>
@@ -88,20 +88,6 @@ function DetailedExpansionPanel(props) {
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
-              {/* <Card
-              fontSize={6}
-              fontWeight="bold"
-              p={5}
-              my={5}
-              bg="#f6f6ff"
-              borderRadius={8}
-              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
-              lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}>
-              {/* map goes here 
-              </Card>*/}
-
               <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
             </GoogleMapReact>
           </div>
@@ -130,7 +116,9 @@ function DetailedExpansionPanel(props) {
             <Typography className={classes.heading}>Jane Styles</Typography>
           </div>
           <div className={classes.column}>
-            <Typography className={classes.secondaryHeading}>Condom</Typography>
+            <Typography className={classes.secondaryHeading}>
+              Tampons
+            </Typography>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
@@ -142,20 +130,6 @@ function DetailedExpansionPanel(props) {
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
-              {/* <Card
-              fontSize={6}
-              fontWeight="bold"
-              p={5}
-              my={5}
-              bg="#f6f6ff"
-              borderRadius={8}
-              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
-              lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}>
-              {/* map goes here 
-              </Card>*/}
-
               <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
             </GoogleMapReact>
           </div>
