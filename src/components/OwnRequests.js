@@ -62,72 +62,31 @@ function CardRequests(props) {
   console.log(requests[0].location[0])
   return (
     <div className={classes.root}>
-<<<<<<< HEAD
       {requests.map(request => (
-        
-          <ExpansionPanel>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <div className={classes.column}>
-              <Typography className={classes.heading}>{request.createdBy}</Typography>
-            </div>
-            <div className={classes.column}>
-              <Typography className={classes.secondaryHeading}>{request.itemRequested}</Typography>
-            </div>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails className={classes.details}>
-            <div
-              style={{ height: "200px", width: "80%" }}
-              className={classes.column2}
-            >
-              <GoogleMapReact
-                bootstrapURLKeys={{
-                  key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
-                }}
-                defaultCenter={defaultProps.center}
-                defaultZoom={defaultProps.zoom}
-              >
-
-                <div lat={request.location[0]} lng={request.location[1]} text={"Kreyser Avrora"} />
-              </GoogleMapReact>
-            </div>
-            <div className={classes.column2} />
-            <div className={classNames(classes.column2, classes.helper)}>
-              <Typography variant="caption">
-                <ul className={classes.list}>
-                  <li>{request.timeStamp}</li>
-                  <li>Distance: 0.1 miles</li>
-                </ul>
-                <br />
-              </Typography>
-            </div>
-          </ExpansionPanelDetails>
-          <Divider />
-        </ExpansionPanel>
+              <Card className={classes.card}>
+              <CardHeader
+                avatar={<Avatar className={classes.avatar} />}
+                title={request.createdBy}
+                subheader="Your TampBud"
+              />
+              <CardMedia className={classNames(classes.map)}>
+                <GoogleMapReact
+                  bootstrapURLKeys={{
+                    key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
+                  }}
+                  defaultCenter={defaultProps.center}
+                  defaultZoom={defaultProps.zoom}
+                >
+                  <div lat={49.955413} lng={30.337844} text={"Kreyser Avrora"} />
+                </GoogleMapReact>
+              </CardMedia>
+              <CardContent>
+                <Typography component="p">Your tampon is on the way!</Typography>
+              </CardContent>
+            </Card>
       ))}
         
-=======
-      <Card className={classes.card}>
-        <CardHeader
-          avatar={<Avatar className={classes.avatar} />}
-          title="Geoffrey the Giraffe"
-          subheader="Your TampBud"
-        />
-        <CardMedia className={classNames(classes.map)}>
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
-            }}
-            defaultCenter={defaultProps.center}
-            defaultZoom={defaultProps.zoom}
-          >
-            <div lat={49.955413} lng={30.337844} text={"Kreyser Avrora"} />
-          </GoogleMapReact>
-        </CardMedia>
-        <CardContent>
-          <Typography component="p">Your tampon is on the way!</Typography>
-        </CardContent>
-      </Card>
->>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
+
     </div>
   );
 }
