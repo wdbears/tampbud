@@ -1,17 +1,15 @@
-import React from "react"
-import { withStyles } from "@material-ui/core/styles"
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Buttons from "../components/Buttons";
 
 const styles = {
-  appLogo: { width: 50, paddingTop: 20 },
-  greeting: { textAlign: "center" },
-}
+  appLogo: { width: 50, paddingTop: 20 }
+};
 
 const HomePage = ({ classes }) => (
   <>
-    <div className={classes.greeting}>
-      <h1>Welcome to TampBud</h1>
-    </div>
+    <Buttons />
   </>
-)
+);
 
-export default withStyles(styles)(HomePage)
+export default withStyles(styles)(HomePage);

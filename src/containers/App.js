@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react"
 import { withStyles } from "@material-ui/core/styles"
 import Router from "react-router-dom/BrowserRouter"
@@ -5,12 +6,20 @@ import Pages from "../pages"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import BottomNav from "../components/BottomNav"
 import firebase from 'firebase'
+=======
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Router from "react-router-dom/BrowserRouter";
+import Pages from "../pages";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import BottomNav from "../components/BottomNav";
+>>>>>>> e9edcdf76a213f5a4cbb9bc5b4b87ad93b9399c5
 
 const styles = {
-  app: { minHeight: "100%"},
+  app: { minHeight: "100vh" },
   navbar: { position: "fixed", bottom: 0, width: "100%" },
-  main: {marginBottom: "70px"}
-}
+  main: { marginBottom: "" }
+};
 
 class App extends Component {
 
@@ -41,19 +50,19 @@ class App extends Component {
 
   render() {
     return (
-        <Router>
-          <div className={this.props.classes.app}>
-            <main className={this.props.classes.main}>
-              <CssBaseline />
-              <Pages />
-            </main>
-            <footer className={this.props.classes.navbar}>
-              <BottomNav />
-            </footer>
-          </div>
-        </Router>
-    )
+      <Router>
+        <div className={this.props.classes.app}>
+          <main className={this.props.classes.main}>
+            <CssBaseline />
+            <Pages />
+          </main>
+          <footer className={this.props.classes.navbar}>
+            <BottomNav />
+          </footer>
+        </div>
+      </Router>
+    );
   }
 }
 
-export default withStyles(styles)(App)
+export default withStyles(styles)(App);
