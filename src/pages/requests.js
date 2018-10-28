@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import RequestsTabs from "../components/RequestsTabs";
 
-const styles = {
+const styles = theme => ({
   greeting: { textAlign: "center" },
   outerContainer: {
     display: "flex",
@@ -10,9 +10,13 @@ const styles = {
     alignItems: "center"
   },
   innerContainer: {
-    width: "60vw"
+    width: "60vw",
+    [theme.breakpoints.down("xs")]: {
+      width: "100% !important", // Overrides inline-style
+      height: "85vh"
+    }
   }
-};
+});
 
 const RequestsPage = ({ classes }) => (
   <>

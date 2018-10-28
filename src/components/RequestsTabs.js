@@ -23,7 +23,8 @@ TabContainer.propTypes = {
 
 const styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: "100%"
   }
 };
 
