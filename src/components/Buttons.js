@@ -10,6 +10,7 @@ import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import { Card, CardContent, CardActions } from "@material-ui/core";
 import firebase from 'firebase';
+import axios from 'axios';
 
 function getModalStyle() {
   const top = 50;
@@ -152,19 +153,26 @@ class ButtonBases extends React.Component {
     });
   }
 
-
   handleClose = () => {
     this.setState({ open: false });
   };
 
-  sendRequest = () => {
-    
+  sendRequest = async () => {
     firebase.database().ref('requests').push({
       createdBy: "Alice Zhu",
       location: "0,0",
       timeStamp: Date.now(),
       completed: false
     });
+
+    await axios.post('http://localhost:5000/', {
+      phone: `13475276604`, //Jarman's phone number here
+      message: `I need a ${this.state.selected}`
+    })
+      .then(response => response.data)
+      .then(res => {
+        console.log(res);
+      });
   };
 
   render() {
