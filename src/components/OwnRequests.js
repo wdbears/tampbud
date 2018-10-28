@@ -8,7 +8,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import GoogleMapReact from "google-map-react";
-import firebase from "firebase"
+import firebase from "firebase";
 import Avatar from "../components/Avatar";
 
 const styles = theme => ({
@@ -21,6 +21,9 @@ const styles = theme => ({
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary
+  },
+  card: {
+    margin: ".5rem"
   },
   icon: {
     verticalAlign: "bottom",
@@ -56,7 +59,7 @@ function CardRequests(props) {
   ref.on('value', async function(snapshot){
     await snapshot.forEach(function(data){
       requests.push(data.val());
-    })
+    });
   });
   
 
@@ -85,8 +88,6 @@ function CardRequests(props) {
               </CardContent>
             </Card>
       ))}
-        
-
     </div>
   );
 }
