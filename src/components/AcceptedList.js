@@ -9,7 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import GoogleMapReact from "google-map-react";
 import firebase from "firebase";
-import Avatar from "../components/Avatar";
+import Avatar2 from "../components/Avatar2";
 
 const styles = theme => ({
   root: {
@@ -63,8 +63,8 @@ function AcceptedCardRequests(props) {
       {requests.map(request => (
         <Card className={classes.card}>
           <CardHeader
-            avatar={<Avatar className={classes.avatar} />}
-            title={request.createdBy}
+            avatar={<Avatar2 className={classes.avatar} />}
+            title={"Shirley Temple"}
             subheader="Your TampBud"
           />
           <CardMedia className={classNames(classes.map)}>
