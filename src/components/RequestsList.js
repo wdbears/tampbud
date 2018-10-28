@@ -142,25 +142,7 @@ function DetailedExpansionPanel(props) {
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
-<<<<<<< HEAD
-              {/* <Card
-              fontSize={6}
-              fontWeight="bold"
-              p={5}
-              my={5}
-              bg="#f6f6ff"
-              borderRadius={8}
-              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
-              lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}>
-              {/* map goes here 
-              </Card>*/}
-
-              <div lat={40.737125999999996} lng={-73.81774920000001} text={"Kreyser Avrora"} />
-=======
               <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
->>>>>>> 2e1eee89a7b479914718fea37a98d6574c1b82dc
             </GoogleMapReact>
           </div>
           <div className={classes.column2} />
