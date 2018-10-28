@@ -135,20 +135,20 @@ class ButtonBases extends React.Component {
 
   handleCondom = () => {
     this.setState({ open: true,
-    selected: "condom"});
+    selected: "Condom"});
   };
 
   handlePeriodPad = () => {
     this.setState({
       open:true,
-      selected: "pad"
+      selected: "Pad"
     });
   }
 
   handleTampon = () => {
     this.setState({
       open: true,
-      selected: "tampon"
+      selected: "Tampon"
     });
   }
 
@@ -160,10 +160,12 @@ class ButtonBases extends React.Component {
   sendRequest = () => {
 
     navigator.geolocation.getCurrentPosition(saveRequest);
+    const selected = this.state.selected;
 
     async function saveRequest(position){
       await firebase.database().ref('requests').push({
         createdBy: "Alice Zhu",
+        itemRequested: selected,
         location: [position.coords.latitude,position.coords.longitude],
         timeStamp: Date.now(),
         completed: false

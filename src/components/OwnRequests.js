@@ -73,60 +73,51 @@ function DetailedExpansionPanel(props) {
     })
   });
   console.log(requests);
-
+  console.log(requests[0].location[0])
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <div className={classes.column}>
-            <Typography className={classes.heading}>Jane Styles</Typography>
-          </div>
-          <div className={classes.column}>
-            <Typography className={classes.secondaryHeading}>Condom</Typography>
-          </div>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.details}>
-          <div
-            style={{ height: "200px", width: "80%" }}
-            className={classes.column2}
-          >
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
-              }}
-              defaultCenter={defaultProps.center}
-              defaultZoom={defaultProps.zoom}
+      {requests.map(request => (
+        
+          <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <div className={classes.column}>
+              <Typography className={classes.heading}>{request.createdBy}</Typography>
+            </div>
+            <div className={classes.column}>
+              <Typography className={classes.secondaryHeading}>{request.itemRequested}</Typography>
+            </div>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails className={classes.details}>
+            <div
+              style={{ height: "200px", width: "80%" }}
+              className={classes.column2}
             >
-              {/* <Card
-              fontSize={6}
-              fontWeight="bold"
-              p={5}
-              my={5}
-              bg="#f6f6ff"
-              borderRadius={8}
-              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
-              lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}>
-              {/* map goes here 
-              </Card>*/}
+              <GoogleMapReact
+                bootstrapURLKeys={{
+                  key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
+                }}
+                defaultCenter={defaultProps.center}
+                defaultZoom={defaultProps.zoom}
+              >
 
-              <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
-            </GoogleMapReact>
-          </div>
-          <div className={classes.column2} />
-          <div className={classNames(classes.column2, classes.helper)}>
-            <Typography variant="caption">
-              <ul className={classes.list}>
-                <li>Time: 3:59 PM</li>
-                <li>Distance: 0.22 miles</li>
-              </ul>
-              <br />
-            </Typography>
-          </div>
-        </ExpansionPanelDetails>
-        <Divider />
-      </ExpansionPanel>
+                <div lat={request.location[0]} lng={request.location[1]} text={"Kreyser Avrora"} />
+              </GoogleMapReact>
+            </div>
+            <div className={classes.column2} />
+            <div className={classNames(classes.column2, classes.helper)}>
+              <Typography variant="caption">
+                <ul className={classes.list}>
+                  <li>{request.timeStamp}</li>
+                  <li>Distance: 0.1 miles</li>
+                </ul>
+                <br />
+              </Typography>
+            </div>
+          </ExpansionPanelDetails>
+          <Divider />
+        </ExpansionPanel>
+      ))}
+        
     </div>
   );
 }
