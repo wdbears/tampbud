@@ -42,6 +42,10 @@ const styles = theme => ({
   column2: {
     flexBasis: "33.33%%"
   },
+  map: {
+    height: "200px",
+    width: "80%"
+  },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
@@ -81,10 +85,7 @@ function DetailedExpansionPanel(props) {
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
-          <div
-            style={{ height: "200px", width: "80%" }}
-            className={classes.column2}
-          >
+          <div className={classNames(classes.column2, classes.map)}>
             <GoogleMapReact
               bootstrapURLKeys={{
                 key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
@@ -105,6 +106,61 @@ function DetailedExpansionPanel(props) {
             text={'Kreyser Avrora'}>
               {/* map goes here 
               </Card>*/}
+
+              <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
+            </GoogleMapReact>
+          </div>
+          <div className={classes.column2} />
+          <div className={classNames(classes.column2, classes.helper)}>
+            <Typography variant="caption">
+              <ul className={classes.list}>
+                <li>Time: 3:59 PM</li>
+                <li>Distance: 0.22 miles</li>
+              </ul>
+              <br />
+            </Typography>
+          </div>
+        </ExpansionPanelDetails>
+        <Divider />
+        <ExpansionPanelActions>
+          <Button size="small">Cancel</Button>
+          <Button size="small" color="primary">
+            Accept
+          </Button>
+        </ExpansionPanelActions>
+      </ExpansionPanel>
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <div className={classes.column}>
+            <Typography className={classes.heading}>Jane Styles</Typography>
+          </div>
+          <div className={classes.column}>
+            <Typography className={classes.secondaryHeading}>Condom</Typography>
+          </div>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.details}>
+          <div className={classNames(classes.column2, classes.map)}>
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
+              }}
+              defaultCenter={defaultProps.center}
+              defaultZoom={defaultProps.zoom}
+            >
+              {/* <Card
+              fontSize={6}
+              fontWeight="bold"
+              p={5}
+              my={5}
+              bg="#f6f6ff"
+              borderRadius={8}
+              boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
+              lat={59.955413}
+            lng={30.337844}
+            text={'Kreyser Avrora'}>
+              {/* map goes here 
+              </Card>*/}
+
               <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
             </GoogleMapReact>
           </div>
