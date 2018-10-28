@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const styles = {
   root: {
-    height: "8vh"
+    height: "7vh"
   }
 };
 
