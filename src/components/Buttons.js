@@ -30,10 +30,10 @@ const styles = theme => ({
   },
   image: {
     position: "relative",
-    height: "93vh",
+    height: "90vh",
     [theme.breakpoints.down("xs")]: {
       width: "100% !important", // Overrides inline-style
-      height: "31vh"
+      height: "30vh"
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
