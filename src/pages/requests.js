@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import RequestsList from "../components/RequestsList";
+import RequestsTabs from "../components/RequestsTabs";
 
 const styles = {
   greeting: { textAlign: "center" },
@@ -20,7 +20,7 @@ const RequestsPage = ({ classes }) => (
       <h1>Requests</h1>
       <div className={classes.outerContainer}>
         <div className={classes.innerContainer}>
-          <RequestsList />
+          <RequestsTabs />
         </div>
       </div>
     </div>
