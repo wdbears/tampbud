@@ -24,18 +24,18 @@ class App extends Component {
     };
     firebase.initializeApp(config);
 
-    /* 
-    firebase.database().ref('requests').set({
+    /*
+    firebase.database().ref('requests').push({
       createdBy: "Alice Zhu",
       location: "0,0",
       timeStamp: Date.now(),
       completed: false
     });
-  */
+    */
 
     //AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU GOogle maps
   }
-  
+
   render() {
     return (
       <Router>
