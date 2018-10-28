@@ -62,15 +62,21 @@ function DetailedExpansionPanel(props) {
   const { classes } = props;
   const defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 40.737125999999996,
+      lng: -73.81774920000001
     },
-    zoom: 11
+    zoom: 17
   };
+
+  function handleAccept(e){
+    e.preventDefault();
+    props.children.className ="hidden";
+  }
+
 
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
+      <ExpansionPanel id = "panel">
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
             <Typography className={classes.heading}>Jane Styles</Typography>
@@ -119,7 +125,7 @@ function DetailedExpansionPanel(props) {
         <Divider />
         <ExpansionPanelActions>
           <Button size="small">Cancel</Button>
-          <Button size="small" color="primary">
+          <Button onclick={handleAccept}size="small" color="primary">
             Accept
           </Button>
         </ExpansionPanelActions>
