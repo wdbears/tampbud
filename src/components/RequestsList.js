@@ -84,7 +84,7 @@ function DetailedExpansionPanel(props) {
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.column}>
-            <Typography className={classes.heading}>Jane Styles</Typography>
+            <Typography className={classes.heading}>Shirley Temple</Typography>
           </div>
           <div className={classes.column}>
             <Typography className={classes.secondaryHeading}>Condom</Typography>
@@ -99,6 +99,7 @@ function DetailedExpansionPanel(props) {
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
+<<<<<<< HEAD
               {/* <Card
               fontSize={6}
               fontWeight="bold"
@@ -114,6 +115,9 @@ function DetailedExpansionPanel(props) {
               </Card>*/}
 
               <div lat={40.737125999999996} lng={-73.81774920000001} text={"Kreyser Avrora"} />
+=======
+              <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
+>>>>>>> 2e1eee89a7b479914718fea37a98d6574c1b82dc
             </GoogleMapReact>
           </div>
           <div className={classes.column2} />
@@ -142,7 +146,9 @@ function DetailedExpansionPanel(props) {
             <Typography className={classes.heading}>Jane Styles</Typography>
           </div>
           <div className={classes.column}>
-            <Typography className={classes.secondaryHeading}>Condom</Typography>
+            <Typography className={classes.secondaryHeading}>
+              Tampons
+            </Typography>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.details}>
@@ -154,6 +160,7 @@ function DetailedExpansionPanel(props) {
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
+<<<<<<< HEAD
               {/* <Card
               fontSize={6}
               fontWeight="bold"
@@ -169,6 +176,9 @@ function DetailedExpansionPanel(props) {
               </Card>*/}
 
               <div lat={40.737125999999996} lng={-73.81774920000001} text={"Kreyser Avrora"} />
+=======
+              <div lat={59.955413} lng={30.337844} text={"Kreyser Avrora"} />
+>>>>>>> 2e1eee89a7b479914718fea37a98d6574c1b82dc
             </GoogleMapReact>
           </div>
           <div className={classes.column2} />
