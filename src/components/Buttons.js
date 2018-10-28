@@ -9,6 +9,7 @@ import PadPic from "../images/pad.jpg";
 import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import { Card, CardContent, CardActions } from "@material-ui/core";
+import firebase from 'firebase';
 
 function getModalStyle() {
   const top = 50;
@@ -128,19 +129,42 @@ const images = [
 
 class ButtonBases extends React.Component {
   state = {
-    open: false
+    open: false,
+    selected: ""
   };
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
+  handleCondom = () => {
+    this.setState({ open: true,
+    selected: "condom"});
   };
+
+  handlePeriodPad = () => {
+    this.setState({
+      open:true,
+      selected: "pad"
+    });
+  }
+
+  handleTampon = () => {
+    this.setState({
+      open: true,
+      selected: "tampon"
+    });
+  }
+
 
   handleClose = () => {
     this.setState({ open: false });
   };
 
   sendRequest = () => {
-    console.log("sent!");
+    
+    firebase.database().ref('requests').push({
+      createdBy: "Alice Zhu",
+      location: "0,0",
+      timeStamp: Date.now(),
+      completed: false
+    });
   };
 
   render() {
@@ -154,7 +178,7 @@ class ButtonBases extends React.Component {
           key={images[0].title}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
-          onClick={classes.handleCondom}
+          onClick={this.handleCondom}
           style={{
             width: images[0].width
           }}
@@ -204,7 +228,7 @@ class ButtonBases extends React.Component {
               color="inherit"
               className={classes.imageTitle}
             >
-              {images[0].title}
+              {images[1].title}
             </Typography>
           </span>
         </ButtonBase>
@@ -255,7 +279,7 @@ class ButtonBases extends React.Component {
                 Are you sure?
               </Typography>
               <Typography variant="subtitle1" id="simple-modal-description">
-                You are requesting for {}
+                You are submitting a request for a {this.state.selected}
               </Typography>
             </CardContent>
             <CardActions>
