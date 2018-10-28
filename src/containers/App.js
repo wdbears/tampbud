@@ -41,7 +41,6 @@ class App extends Component {
     }
 
     getLocation()
-    const db = firebase.database();
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
