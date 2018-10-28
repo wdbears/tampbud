@@ -31,7 +31,6 @@ class SimpleBottomNavigation extends React.Component {
       <BottomNavigation
         value={value}
         onChange={this.handleChange}
-        showLabels
         className={classes.root}
       >
         <BottomNavigationAction
