@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import GoogleMapReact from "google-map-react";
+import firebase from "firebase"
 
 const styles = theme => ({
   root: {
@@ -61,6 +62,17 @@ function DetailedExpansionPanel(props) {
     },
     zoom: 11
   };
+
+
+  let db = firebase.database();
+  let ref = db.ref('requests');
+  let requests = [];
+  ref.on('value', function(snapshot){
+    snapshot.forEach(function(data){
+      requests.push(data.val());
+    })
+  });
+  console.log(requests);
 
   return (
     <div className={classes.root}>

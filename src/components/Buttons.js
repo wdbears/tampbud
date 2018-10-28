@@ -158,13 +158,19 @@ class ButtonBases extends React.Component {
   };
 
   sendRequest = () => {
-    
-    firebase.database().ref('requests').push({
-      createdBy: "Alice Zhu",
-      location: "0,0",
-      timeStamp: Date.now(),
-      completed: false
-    });
+
+    navigator.geolocation.getCurrentPosition(saveRequest);
+
+    async function saveRequest(position){
+      await firebase.database().ref('requests').push({
+        createdBy: "Alice Zhu",
+        location: [position.coords.latitude,position.coords.longitude],
+        timeStamp: Date.now(),
+        completed: false
+      });
+      console.log("Saved!");
+    }
+    this.setState({open:false})
   };
 
   render() {

@@ -19,19 +19,23 @@ const styles = {
 
 class App extends Component {
   async componentDidMount() {
-    const config = {
-      apiKey: "AIzaSyCpHYeJmoxC1hdnUOPl1lqI6a3FyUNdDIU",
-      authDomain: "tampbud.firebaseapp.com",
-      databaseURL: "https://tampbud.firebaseio.com",
-      projectId: "tampbud",
-      storageBucket: "tampbud.appspot.com",
-      messagingSenderId: "867512165187"
-    };
-    firebase.initializeApp(config);
+    
+
+    // const config = {
+    //   apiKey: "AIzaSyCpHYeJmoxC1hdnUOPl1lqI6a3FyUNdDIU",
+    //   authDomain: "tampbud.firebaseapp.com",
+    //   databaseURL: "https://tampbud.firebaseio.com",
+    //   projectId: "tampbud",
+    //   storageBucket: "tampbud.appspot.com",
+    //   messagingSenderId: "867512165187"
+    // };
+    // firebase.initializeApp(config);
+    
 
     function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
+          console.log("Location permissions granted!");
       } else {
           console.log("Geolocation is not supported by this browser.");
       }
@@ -43,7 +47,7 @@ class App extends Component {
     }
 
     getLocation()
-
+    const db = firebase.database();
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
@@ -83,5 +87,14 @@ class App extends Component {
     );
   }
 }
+const config = {
+  apiKey: "AIzaSyCpHYeJmoxC1hdnUOPl1lqI6a3FyUNdDIU",
+  authDomain: "tampbud.firebaseapp.com",
+  databaseURL: "https://tampbud.firebaseio.com",
+  projectId: "tampbud",
+  storageBucket: "tampbud.appspot.com",
+  messagingSenderId: "867512165187"
+};
 
+export const db = firebase.initializeApp(config)
 export default withStyles(styles)(App);
