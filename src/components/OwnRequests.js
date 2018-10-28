@@ -36,27 +36,30 @@ const styles = theme => ({
   }
 });
 
+
+
+  
+
 function CardRequests(props) {
   const { classes } = props;
   const defaultProps = {
     center: {
-      lat: 49.95,
-      lng: 30.33
+      lat: 40.737125999999996,
+      lng: -73.81774920000001
     },
-    zoom: 11
+    zoom: 16
   };
-
 
   let db = firebase.database();
   let ref = db.ref('requests');
-  let requests = [];
-  ref.on('value', function(snapshot){
-    snapshot.forEach(function(data){
+  const requests = [];
+  ref.on('value', async function(snapshot){
+    await snapshot.forEach(function(data){
       requests.push(data.val());
     })
   });
-  console.log(requests);
-  console.log(requests[0].location[0])
+  
+
   return (
     <div className={classes.root}>
       {requests.map(request => (
@@ -74,11 +77,11 @@ function CardRequests(props) {
                   defaultCenter={defaultProps.center}
                   defaultZoom={defaultProps.zoom}
                 >
-                  <div lat={49.955413} lng={30.337844} text={"Kreyser Avrora"} />
+                  <div lat={40.737125999999996} lng={-73.81774920000001} text={"Kreyser Avrora"} />
                 </GoogleMapReact>
               </CardMedia>
               <CardContent>
-                <Typography component="p">Your tampon is on the way!</Typography>
+                <Typography component="p">Your {request.itemRequested} is on the way!</Typography>
               </CardContent>
             </Card>
       ))}
