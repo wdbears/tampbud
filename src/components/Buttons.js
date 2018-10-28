@@ -128,17 +128,16 @@ const images = [
 
 class ButtonBases extends React.Component {
   state = {
-    open: false,
+    open: false
   };
 
   sendRequest = () => {
     console.log("sent!");
-  }
-
+  };
 
   handleOpen = () => {
-    this.setState({ 
-        open: true,
+    this.setState({
+      open: true
     });
   };
 
@@ -151,7 +150,7 @@ class ButtonBases extends React.Component {
 
     return (
       <div className={classes.root}>
-        {images.map((image) => (
+        {images.map(image => (
           <ButtonBase
             focusRipple
             key={image.title}
@@ -161,7 +160,6 @@ class ButtonBases extends React.Component {
             style={{
               width: image.width
             }}
-            
           >
             <span
               className={classes.imageSrc}
@@ -201,13 +199,10 @@ class ButtonBases extends React.Component {
                 You are requesting for {}
               </Typography>
             </CardContent>
-<<<<<<< HEAD
             <CardActions>
-              <Button onClick= {this.sendRequest} size="small">Yes</Button>
-=======
-            <CardActions className={classes.cardButtons}>
-              <Button size="small">Yes</Button>
->>>>>>> f38c2670c8696912339bf392d9ab1b7912890ba1
+              <Button onClick={this.sendRequest} size="small">
+                Yes
+              </Button>
               <Button size="small">No</Button>
             </CardActions>
           </Card>
