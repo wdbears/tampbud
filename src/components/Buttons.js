@@ -30,10 +30,10 @@ const styles = theme => ({
   },
   image: {
     position: "relative",
-    height: "93vh",
+    height: "90vh",
     [theme.breakpoints.down("xs")]: {
       width: "100% !important", // Overrides inline-style
-      height: "31vh"
+      height: "30vh"
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
@@ -51,12 +51,15 @@ const styles = theme => ({
   paper: {
     position: "absolute",
     textAlign: "center",
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4
   },
   cardtitle: {
     marginBottom: 12
+  },
+  cardButtons: {
+    justifyContent: "center",
+    alignItems: "center"
   },
   focusVisible: {},
   imageButton: {
@@ -198,8 +201,13 @@ class ButtonBases extends React.Component {
                 You are requesting for {}
               </Typography>
             </CardContent>
+<<<<<<< HEAD
             <CardActions>
               <Button onClick= {this.sendRequest} size="small">Yes</Button>
+=======
+            <CardActions className={classes.cardButtons}>
+              <Button size="small">Yes</Button>
+>>>>>>> f38c2670c8696912339bf392d9ab1b7912890ba1
               <Button size="small">No</Button>
             </CardActions>
           </Card>
