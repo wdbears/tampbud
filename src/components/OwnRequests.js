@@ -8,11 +8,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import GoogleMapReact from "google-map-react";
-<<<<<<< HEAD
 import firebase from "firebase"
-=======
 import Avatar from "../components/Avatar";
->>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
 
 const styles = theme => ({
   root: {
