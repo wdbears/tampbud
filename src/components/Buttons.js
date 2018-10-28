@@ -16,10 +16,10 @@ const styles = theme => ({
   },
   image: {
     position: "relative",
-    height: 200,
+    height: "92vh",
     [theme.breakpoints.down("xs")]: {
       width: "100% !important", // Overrides inline-style
-      height: 100
+      height: 200
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
@@ -85,17 +85,17 @@ const images = [
   {
     url: CondomPic,
     title: "Condoms",
-    width: "33%"
+    width: "calc(100% /3)"
   },
   {
     url: TamponPic,
     title: "Tampons",
-    width: "33%"
+    width: "calc(100% /3)"
   },
   {
     url: PadPic,
     title: "Pads",
-    width: "33%"
+    width: "calc(100% /3)"
   }
 ];
 
