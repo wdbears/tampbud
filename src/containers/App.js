@@ -6,11 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import BottomNav from "../components/BottomNav";
 import firebase from "firebase";
 
-const googleMaps = require('@google/maps').createClient({
-  key: "AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU",
-  Promise: Promise
-});
-
 const styles = {
   app: { minHeight: "100vh" },
   navbar: { position: "fixed", bottom: 0, width: "100%" },
@@ -31,19 +26,17 @@ class App extends Component {
 
     function getLocation() {
       if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);
       } else {
-          console.log("Geolocation is not supported by this browser.");
+        console.log("Geolocation is not supported by this browser.");
       }
     }
 
     function showPosition(position) {
-        let myString = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude; 
+      return;
     }
 
-    getLocation()
-
+    getLocation();
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
@@ -53,7 +46,6 @@ class App extends Component {
       console.log(response.json.results[0].address_components[7].long_name);
     });
     */
-    
 
     /*
     firebase.database().ref('requests').push({

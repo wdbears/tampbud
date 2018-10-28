@@ -53,8 +53,8 @@ class FullWidthTabs extends React.Component {
           textColor="primary"
           fullWidth
         >
-          <Tab label="Own Requests" />
-          <Tab label="Other's Requests" />
+          <Tab label="Personal" />
+          <Tab label="Community" />
         </Tabs>
         <SwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
