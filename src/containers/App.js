@@ -29,12 +29,8 @@ class App extends Component {
 
     function getLocation() {
       if (navigator.geolocation) {
-<<<<<<< HEAD
           navigator.geolocation.getCurrentPosition(showPosition);
           console.log("Location permissions granted!");
-=======
-        navigator.geolocation.getCurrentPosition(showPosition);
->>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
       } else {
         console.log("Geolocation is not supported by this browser.");
       }
@@ -44,12 +40,8 @@ class App extends Component {
       return;
     }
 
-<<<<<<< HEAD
     getLocation()
     const db = firebase.database();
-=======
-    getLocation();
->>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
