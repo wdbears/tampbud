@@ -6,11 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import BottomNav from "../components/BottomNav";
 import firebase from "firebase";
 
-const googleMaps = require('@google/maps').createClient({
-  key: "AIzaSyDWBOIZ_dwzgmxXJlN6AKpfR1vXd4SBxZU",
-  Promise: Promise
-});
-
 const styles = {
   app: { minHeight: "100vh" },
   navbar: { position: "fixed", bottom: 0, width: "100%" },
@@ -34,20 +29,27 @@ class App extends Component {
 
     function getLocation() {
       if (navigator.geolocation) {
+<<<<<<< HEAD
           navigator.geolocation.getCurrentPosition(showPosition);
           console.log("Location permissions granted!");
+=======
+        navigator.geolocation.getCurrentPosition(showPosition);
+>>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
       } else {
-          console.log("Geolocation is not supported by this browser.");
+        console.log("Geolocation is not supported by this browser.");
       }
     }
 
     function showPosition(position) {
-        let myString = "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude; 
+      return;
     }
 
+<<<<<<< HEAD
     getLocation()
     const db = firebase.database();
+=======
+    getLocation();
+>>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
@@ -57,7 +59,6 @@ class App extends Component {
       console.log(response.json.results[0].address_components[7].long_name);
     });
     */
-    
 
     /*
     firebase.database().ref('requests').push({

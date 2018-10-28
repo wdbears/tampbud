@@ -2,14 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Divider from "@material-ui/core/Divider";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
 import GoogleMapReact from "google-map-react";
+<<<<<<< HEAD
 import firebase from "firebase"
+=======
+import Avatar from "../components/Avatar";
+>>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
 
 const styles = theme => ({
   root: {
@@ -30,34 +33,17 @@ const styles = theme => ({
   details: {
     alignItems: "center"
   },
-  column: {
-    flexBasis: "50%"
-  },
-  column2: {
-    flexBasis: "33.33%%"
-  },
-  helper: {
-    borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
-  },
-  link: {
-    color: theme.palette.primary.main,
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline"
-    }
-  },
-  list: {
-    listStyleType: "none",
-    textAlign: "left"
+  map: {
+    height: "200px",
+    width: "100%"
   }
 });
 
-function DetailedExpansionPanel(props) {
+function CardRequests(props) {
   const { classes } = props;
   const defaultProps = {
     center: {
-      lat: 59.95,
+      lat: 49.95,
       lng: 30.33
     },
     zoom: 11
@@ -76,6 +62,7 @@ function DetailedExpansionPanel(props) {
   console.log(requests[0].location[0])
   return (
     <div className={classes.root}>
+<<<<<<< HEAD
       {requests.map(request => (
         
           <ExpansionPanel>
@@ -118,12 +105,35 @@ function DetailedExpansionPanel(props) {
         </ExpansionPanel>
       ))}
         
+=======
+      <Card className={classes.card}>
+        <CardHeader
+          avatar={<Avatar className={classes.avatar} />}
+          title="Geoffrey the Giraffe"
+          subheader="Your TampBud"
+        />
+        <CardMedia className={classNames(classes.map)}>
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyAraoaZOS-5NeVj6waihil6SeGXc9n_N5Q"
+            }}
+            defaultCenter={defaultProps.center}
+            defaultZoom={defaultProps.zoom}
+          >
+            <div lat={49.955413} lng={30.337844} text={"Kreyser Avrora"} />
+          </GoogleMapReact>
+        </CardMedia>
+        <CardContent>
+          <Typography component="p">Your tampon is on the way!</Typography>
+        </CardContent>
+      </Card>
+>>>>>>> f1b17b56bd664aa5e4c4cc617f9d8c6e627dfd9e
     </div>
   );
 }
 
-DetailedExpansionPanel.propTypes = {
+CardRequests.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(DetailedExpansionPanel);
+export default withStyles(styles)(CardRequests);
