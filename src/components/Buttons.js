@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
-import Modal from "@material-ui/core/Modal";
-import Button from "@material-ui/core/Button";
 import CondomPic from "../images/condom.jpg";
 import TamponPic from "../images/tampon.jpg";
 import PadPic from "../images/pad.jpg";
+import Modal from "@material-ui/core/Modal";
+import Button from "@material-ui/core/Button";
 import { Card, CardContent, CardActions } from "@material-ui/core";
 
 function getModalStyle() {
@@ -127,18 +127,27 @@ const images = [
 ];
 
 class ButtonBases extends React.Component {
+  state = {
+    open: false
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
   sendRequest = () => {
     console.log("sent!");
-  }
-
+  };
 
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-
         {/* Condom Button */}
         <ButtonBase
           focusRipple
@@ -229,7 +238,34 @@ class ButtonBases extends React.Component {
             </Typography>
           </span>
         </ButtonBase>
-        
+
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <Card style={getModalStyle()} className={classes.paper}>
+            <CardContent>
+              <Typography
+                variant="h5"
+                id="modal-title"
+                className={classes.cardtitle}
+              >
+                Are you sure?
+              </Typography>
+              <Typography variant="subtitle1" id="simple-modal-description">
+                You are requesting for {}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button onClick={this.sendRequest} size="small">
+                Yes
+              </Button>
+              <Button size="small">No</Button>
+            </CardActions>
+          </Card>
+        </Modal>
       </div>
     );
   }
