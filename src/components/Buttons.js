@@ -136,20 +136,20 @@ class ButtonBases extends React.Component {
 
   handleCondom = () => {
     this.setState({ open: true,
-    selected: "condom"});
+    selected: "Condom"});
   };
 
   handlePeriodPad = () => {
     this.setState({
       open:true,
-      selected: "pad"
+      selected: "Pad"
     });
   }
 
   handleTampon = () => {
     this.setState({
       open: true,
-      selected: "tampon"
+      selected: "Tampon"
     });
   }
 
@@ -158,21 +158,29 @@ class ButtonBases extends React.Component {
   };
 
   sendRequest = async () => {
-    firebase.database().ref('requests').push({
-      createdBy: "Alice Zhu",
-      location: "0,0",
-      timeStamp: Date.now(),
-      completed: false
-    });
+    navigator.geolocation.getCurrentPosition(saveRequest);
+    const selected = this.state.selected;
+
+    async function saveRequest(position){
+      await firebase.database().ref('requests').push({
+        createdBy: "Alice Zhu",
+        itemRequested: selected,
+        location: [position.coords.latitude,position.coords.longitude],
+        timeStamp: Date.now(),
+        completed: false
+      });
+      console.log("Saved!");
+    }
+    this.setState({open:false})
 
     await axios.post('http://localhost:5000/', {
       phone: `13475276604`, //Jarman's phone number here
       message: `I need a ${this.state.selected}`
     })
-      .then(response => response.data)
-      .then(res => {
-        console.log(res);
-      });
+    .then(response => response.data)
+    .then(res => {
+      console.log(res);
+    });
   };
 
   render() {
