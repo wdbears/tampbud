@@ -1,6 +1,5 @@
 {
   "name": "tampbud",
-  "homepage": "https://wdbears.github.io/TampBud/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
