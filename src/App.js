@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Router from "react-router-dom/BrowserRouter";
-import Pages from "../pages";
+import Pages from "./pages";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import BottomNav from "../components/BottomNav";
+import BottomNav from "./components/BottomNav";
 import firebase from "firebase";
 
 const styles = {
   app: { minHeight: "100vh" },
   navbar: { position: "fixed", bottom: 0, width: "100%" },
-  main: { marginBottom: "" }
+  main: { marginBottom: "" },
 };
 
 class App extends Component {
   async componentDidMount() {
-    
-
     // const config = {
     //   apiKey: "AIzaSyCpHYeJmoxC1hdnUOPl1lqI6a3FyUNdDIU",
     //   authDomain: "tampbud.firebaseapp.com",
@@ -25,12 +23,11 @@ class App extends Component {
     //   messagingSenderId: "867512165187"
     // };
     // firebase.initializeApp(config);
-    
 
     function getLocation() {
       if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-          console.log("Location permissions granted!");
+        navigator.geolocation.getCurrentPosition(showPosition);
+        console.log("Location permissions granted!");
       } else {
         console.log("Geolocation is not supported by this browser.");
       }
@@ -40,7 +37,7 @@ class App extends Component {
       return;
     }
 
-    getLocation()
+    getLocation();
 
     /* GET ZIP CODE OF A LATITUDE LONGITUDE
     const response = await googleMaps.reverseGeocode({
@@ -85,8 +82,8 @@ const config = {
   databaseURL: "https://tampbud.firebaseio.com",
   projectId: "tampbud",
   storageBucket: "tampbud.appspot.com",
-  messagingSenderId: "867512165187"
+  messagingSenderId: "867512165187",
 };
 
-export const db = firebase.initializeApp(config)
+export const db = firebase.initializeApp(config);
 export default withStyles(styles)(App);

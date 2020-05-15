@@ -1,16 +1,17 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const accountSid = "AC3e6e920841fa73c28d3e30a508f01669";
-const authToken = "0715e24b6f1e34095fc735ceae80d84b";
+import express from "express";
+import { urlencoded, json } from "body-parser";
+import cors from "cors";
+
+const accountSid = "";
+const authToken = "";
 const client = require("twilio")(accountSid, authToken);
 
 let app = express();
 
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 app.use(cors());
 
 let twilio = (phone, body) => {

@@ -9,7 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 // import GoogleMapReact from "google-map-react";
 import firebase from "firebase";
-import Avatar2 from "../components/Avatar2";
+import Avatar2 from "./Avatar2";
 
 const styles = (theme) => ({
   root: {
